@@ -1,4 +1,3 @@
-
 .cabecera-navegacion {
   background-color: $color-azul-medio;
   position: sticky;
@@ -63,9 +62,6 @@
   }
 }
 
-// --------------------------------------------------------
-// 2. Botón menú lateral con flexbox
-// --------------------------------------------------------
 .caja-menu-arriba {
   &__boton-menu {
     display: flex;
@@ -90,9 +86,6 @@
   }
 }
 
-// --------------------------------------------------------
-// 3. Logotipo CDM Smith
-// --------------------------------------------------------
 .logo-cdm {
   display: flex;
   align-items: baseline;
@@ -115,28 +108,27 @@
   }
 }
 
-// --------------------------------------------------------
-// 4. Banner principal (Masthead)
-// --------------------------------------------------------
 .seccion-banner-principal {
   background-color: $color-azul-oscuro;
   color: $color-blanco;
-  padding: 55px 24px 45px;
+  padding: 56px 24px 44px;
   position: relative;
   overflow: hidden;
 
-  // Patrón geométrico decorativo
   &__patron-decorativo {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
-    width: 280px;
-    height: 100%;
-    background-image: 
-      radial-gradient(circle at 10px 10px, rgba(7, 117, 189, 0.25) 3px, transparent 0),
-      linear-gradient(135deg, transparent 40%, rgba(7, 117, 189, 0.15) 100%);
-    background-size: 20px 20px, 100% 100%;
+    width: 392px;
+    height: 224px;
     pointer-events: none;
+    z-index: 1;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
   }
 
   &__contenedor {
@@ -183,17 +175,10 @@
   }
 
   &__barra-indicadora {
-    width: 40px;
-    height: 3px;
-    background-color: $color-celeste-figma;
-    margin: 28px auto 0;
-    border-radius: 2px;
+    display: none;
   }
 }
 
-// --------------------------------------------------------
-// 5. Migas de pan (Breadcrumbs)
-// --------------------------------------------------------
 .migas-de-pan {
   font-size: 13px;
   margin-bottom: 24px;
@@ -213,47 +198,75 @@
   }
 }
 
-// --------------------------------------------------------
-// 6. Sección de contenido del artículo
-// --------------------------------------------------------
 .seccion-articulo-principal {
-  padding: 40px 24px 60px;
+  background-color: $color-fondo-pagina;
+  position: relative;
+  padding: 0;
 
-  &__caja-central {
-    max-width: 860px;
+  &__intro {
+    max-width: 1440px;
     margin: 0 auto;
-    background-color: $color-blanco;
-    padding: 48px 56px;
-    border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     position: relative;
+    padding: 60px 0 0;
+    overflow: hidden;
   }
 
+  &__patron-decorativo,
   &__decoracion-esquina {
     position: absolute;
     top: 0;
     right: 0;
-    width: 90px;
-    height: 90px;
-    background: 
-      linear-gradient(to bottom, rgba(7, 117, 189, 0.12) 0%, transparent 100%),
-      linear-gradient(to left, rgba(7, 117, 189, 0.12) 0%, transparent 100%);
-    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    width: 280px;
+    height: 224px;
     pointer-events: none;
+    z-index: 1;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__intro-contenedor,
+  &__columna-texto,
+  &__cuerpo {
+    max-width: 740px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__cuerpo {
+    padding-bottom: 60px;
+  }
+
+  &__caja-central {
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    position: relative;
   }
 
   &__meta {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 24px;
   }
 
   &__punto-verde {
-    width: 8px;
-    height: 8px;
+    display: inline-block;
+    width: 14px;
+    height: 4px;
     background-color: $color-verde-acento;
-    border-radius: 50%;
+    border-radius: 2px;
+    flex-shrink: 0;
   }
 
   &__fecha {
@@ -263,30 +276,39 @@
   }
 
   &__titulo {
-    font-size: 28px;
-    color: $color-texto-oscuro;
+    font-size: 36px;
     font-weight: 700;
-    margin: 32px 0 16px;
+    color: $color-texto-oscuro;
+    margin: 0 0 32px;
     line-height: 1.3;
+    letter-spacing: -0.5px;
+  }
 
-    &:first-of-type {
-      margin-top: 0;
-    }
+  &__subtitulo {
+    font-size: 36px;
+    font-weight: 700;
+    color: $color-texto-oscuro;
+    margin: 44px 0 24px;
+    line-height: 1.25;
+    letter-spacing: -0.5px;
   }
 
   &__parrafo {
     font-size: 16px;
     color: $color-texto-gris;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     line-height: 1.65;
 
     strong {
       color: $color-texto-oscuro;
+      font-weight: 700;
     }
   }
 
   &__figura {
-    margin: 32px 0;
+    width: 100%;
+    margin: 36px 0 44px;
+    padding: 0;
   }
 
   &__contenedor-foto {
@@ -297,17 +319,39 @@
 
   &__imagen {
     width: 100%;
+    height: auto;
     display: block;
+    aspect-ratio: 16 / 9.5;
+    object-fit: cover;
+  }
+
+  &__pie-foto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(12, 40, 79, 0.92);
+    color: $color-blanco;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 10px 18px;
+    letter-spacing: 0.2px;
   }
 
   &__lista-numerada {
-    margin: 16px 0 24px 24px;
+    margin: 18px 0 28px 24px;
     color: $color-texto-gris;
-    font-size: 15px;
+    font-size: 16px;
 
     li {
-      margin-bottom: 8px;
-      padding-left: 6px;
+      margin-bottom: 12px;
+      padding-left: 8px;
+      line-height: 1.6;
+
+      &::marker {
+        font-weight: 700;
+        color: $color-texto-oscuro;
+      }
     }
   }
 
@@ -315,23 +359,24 @@
     width: 40px;
     height: 3px;
     background-color: $color-celeste-figma;
-    margin: 40px auto 10px;
+    margin: 48px auto 10px;
     border-radius: 2px;
   }
 }
 
-// --------------------------------------------------------
-// 7. Tarjeta de cita destacada (CSS Grid)
-// --------------------------------------------------------
 .tarjeta-cita-destacada {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  margin: 36px 0;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin: 44px 0;
   border-radius: 4px;
-  overflow: hidden;
   position: relative;
 
   &__columna-imagen {
+    position: relative;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    overflow: hidden;
     height: 100%;
   }
 
@@ -339,78 +384,100 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
   &__columna-texto {
-    background-color: $color-azul-oscuro;
+    background-color: $color-azul-medio;
     color: $color-blanco;
-    padding: 32px 36px;
+    padding: 38px 32px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
   }
 
-  &__comilla {
-    font-size: 48px;
-    line-height: 1;
-    color: $color-verde-acento;
-    font-family: $fuente-serif;
-    margin-bottom: 6px;
+  &__icono-cita {
+    position: absolute;
+    top: -12px;
+    left: 28px;
+    z-index: 3;
+    display: block;
+    line-height: 0;
+
+    svg {
+      width: 34px;
+      height: 24px;
+      display: block;
+    }
   }
 
   &__frase {
     font-size: 15px;
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 24px;
     color: $color-blanco;
   }
 
   &__autor {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 14px;
+    border-top: 1px solid $color-verde-acento;
+    padding-top: 16px;
   }
 
   &__nombre {
     display: block;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     color: $color-blanco;
+    margin-bottom: 3px;
   }
 
   &__cargo {
-    font-size: 12px;
+    font-size: 13px;
     color: $color-texto-claro;
+    font-weight: 400;
   }
 
-  // Modificador de 1 sola columna
   &--ancho-completo {
     grid-template-columns: 1fr;
-    margin: 40px 0;
+    margin: 44px 0;
+
+    .tarjeta-cita-destacada__columna-texto {
+      border-radius: 4px;
+      padding: 40px 36px 32px;
+    }
   }
 }
 
-// --------------------------------------------------------
-// 8. Caja de declaración institucional
-// --------------------------------------------------------
 .caja-declaracion-empresa {
   padding: 24px 28px;
   background-color: $color-gris-fondo;
   border-radius: 4px;
   border-bottom: 3px solid $color-verde-acento;
-  margin: 32px 0 20px;
+  margin: 36px 0 24px;
 
   &__texto {
-    font-size: 13.5px;
+    font-size: 14px;
     color: $color-texto-gris;
     line-height: 1.65;
   }
 }
 
-// --------------------------------------------------------
-// 9. Adaptaciones Responsive (Media Queries)
-// --------------------------------------------------------
+@media (max-width: 788px) {
+  .seccion-articulo-principal {
+    &__intro-contenedor,
+    &__columna-texto,
+    &__cuerpo {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
 @media (max-width: $breakpoint-tablet) {
   .seccion-banner-principal {
     padding: 40px 16px 30px;
@@ -418,17 +485,36 @@
     &__titulo {
       font-size: 30px;
     }
+
+    &__patron-decorativo {
+      opacity: 0.4;
+      transform: scale(0.75);
+      transform-origin: bottom right;
+    }
   }
 
   .seccion-articulo-principal {
-    padding: 20px 12px 40px;
+    &__intro {
+      padding: 40px 0 0;
+    }
 
-    &__caja-central {
-      padding: 28px 20px;
+    &__patron-decorativo,
+    &__decoracion-esquina {
+      opacity: 0.4;
+      transform: scale(0.75);
+      transform-origin: top right;
     }
 
     &__titulo {
-      font-size: 24px;
+      font-size: 28px;
+    }
+
+    &__subtitulo {
+      font-size: 28px;
+    }
+
+    &__figura {
+      margin: 24px 0 32px;
     }
   }
 
@@ -437,10 +523,12 @@
 
     &__columna-imagen {
       height: 240px;
+      border-radius: 4px 4px 0 0;
     }
 
     &__columna-texto {
-      padding: 24px;
+      padding: 32px 24px 24px;
+      border-radius: 0 0 4px 4px;
     }
   }
 }
@@ -458,15 +546,28 @@
     &__info-autores {
       font-size: 13px;
     }
+
+    &__patron-decorativo {
+      display: none;
+    }
   }
 
   .seccion-articulo-principal {
-    &__caja-central {
-      padding: 20px 16px;
+    &__intro {
+      padding: 32px 0 0;
+    }
+
+    &__patron-decorativo,
+    &__decoracion-esquina {
+      display: none;
     }
 
     &__titulo {
-      font-size: 21px;
+      font-size: 24px;
+    }
+
+    &__subtitulo {
+      font-size: 24px;
     }
 
     &__parrafo {
