@@ -1,0 +1,24 @@
+// ========================================================
+// VARIABLES GLOBALES (_variables.scss)
+// ========================================================
+
+// Colores extraídos del diseño Figma (CDM Smith)
+$color-azul-oscuro:   #001c4f;
+$color-azul-medio:    #003087;
+$color-celeste-figma: #0775bd;
+$color-verde-acento:  #7ac143;
+$color-fondo-pagina:  #eff1f3;
+$color-blanco:        #ffffff;
+$color-texto-oscuro:  #1e1e1e;
+$color-texto-gris:    #424f57;
+$color-texto-claro:   #b5bdc9;
+$color-borde-suave:   #e6e8ea;
+$color-gris-fondo:    #f4f5f5;
+
+// Tipografía principal
+$fuente-principal: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$fuente-serif: Georgia, serif;
+
+// Puntos de quiebre (breakpoints) para responsive
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;

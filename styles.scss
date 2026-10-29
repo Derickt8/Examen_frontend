@@ -1,0 +1,14 @@
+// ========================================================
+// ESTILOS PRINCIPALES (styles.scss)
+// Arquitectura Modular Sass (SCSS)
+// ========================================================
+
+// 1. Configuración, variables y mixins
+@import 'variables';
+@import 'mixins';
+
+// 2. Reseteo y estilos globales
+@import 'base';
+
+// 3. Estructura y componentes de interfaz
+@import 'components';
