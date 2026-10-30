@@ -439,6 +439,7 @@ img {
 }
 @media (max-width: 768px) {
   .seccion-banner-principal {
+    background-color: red;
     padding: 40px 16px 30px;
   }
   .seccion-banner-principal__titulo {
@@ -479,6 +480,18 @@ img {
   }
 }
 @media (max-width: 480px) {
+  .seccion-banner-principal {
+    background-color: blue;
+    padding: 40px 16px 30px;
+  }
+  .seccion-banner-principal__titulo {
+    font-size: 30px;
+  }
+  .seccion-banner-principal__patron-decorativo {
+    opacity: 0.4;
+    transform: scale(0.75);
+    transform-origin: bottom right;
+  }
   .cabecera-navegacion__contenedor {
     padding: 10px 16px;
   }
@@ -509,3 +522,63 @@ img {
 }
 
 /*# sourceMappingURL=styles.css.map */
+
+
+.abrirLB {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+#Ventana {
+  display: none;
+}
+
+#Ventana:target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.cerrarLB {
+  align-self: flex-end;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 12px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.cerrarLB:hover {
+  background-color: #e53e3e;
+}
+
+.contenido img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
